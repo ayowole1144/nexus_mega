@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Mega Nigeria Ltd | Construction Logistics in Lagos</title>
+    <title>Nexus Mega | Construction Logistics in Lagos</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -13,7 +14,6 @@
         <div class="container">
             <div class="logo">
                 <h1>Nexus <span>Mega</span></h1>
-                <p>Nigeria Ltd</p>
             </div>
             <nav>
                 <ul>
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <!-- Slide 2 -->
-            <div class="slide" style="background-image: url('images/hero-bg2.jpg');">
+            <div class="slide" style="background-image: url('images/trucks-parked.JPG');">
                 <div class="container">
                     <h2>Premium <span>Heavy Equipment</span> Leasing</h2>
                     <p>Fleet of 6x4 dump trucks and specialized machinery</p>
@@ -56,7 +56,6 @@
                 </div>
             </div>
         </div>
-        <!-- Slider Controls -->
         <div class="slider-controls">
             <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
             <div class="slide-indicators"></div>
@@ -71,10 +70,45 @@
             <div class="about-grid">
                 <div class="about-content">
                     <p>Nexus Mega Nigeria Ltd is a boutique construction logistics company in Lagos. With first class, highly reliable fleet of construction trucks and equipment, we offer a commitment to excellence. We ensure timely and efficient delivery for every project.</p>
-                    <p>Our Mission is to be the top family-owned logistics company in Nigeria, known for unmatched customer satisfaction.</p>
-                </div>
-                <div class="about-image">
-                    <img src="images/about-truck.jpg" alt="Our Fleet">
+                    
+                    <div class="video-showcase">
+                        <h3><i class="fas fa-video"></i> Our Fleet in Action</h3>
+                        
+                        <!-- Video Grid -->
+                        <div class="video-grid">
+                            <div class="video-item">
+                                <video controls poster="images/truck-at-loading-site.JPG">
+                                    <source src="videos/truck at loading site.webm" type="video/webm">
+                                    Your browser doesn't support HTML5 video.
+                                </video>
+                                <p class="video-caption">Loading Operations at Ibeshe Site</p>
+                            </div>
+                            
+                            <div class="video-item">
+                                <video controls poster="images/tire-maintenance.JPG">
+                                    <source src="videos/tire_maintenance.webm" type="video/webm">
+                                    Your browser doesn't support HTML5 video.
+                                </video>
+                                <p class="video-caption">Tire Maintenance Process</p>
+                            </div>
+                            
+                            <div class="video-item">
+                                <video controls poster="images/truck-engine-maintenance.JPG">
+                                    <source src="videos/truck engine maintenance.webm" type="video/webm">
+                                    Your browser doesn't support HTML5 video.
+                                </video>
+                                <p class="video-caption">Engine Maintenance</p>
+                            </div>
+                            
+                            <div class="video-item">
+                                <video controls poster="images/trucks-parked.JPG">
+                                    <source src="videos/trucks parked.webm" type="video/webm">
+                                    Your browser doesn't support HTML5 video.
+                                </video>
+                                <p class="video-caption">Our Fleet at Central Yard</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -118,6 +152,34 @@
                         <li>Commercial and residential development</li>
                     </ul>
                 </div>
+
+                <!-- Quote Calculator -->
+                <div class="quote-calculator">
+                    <h3><i class="fas fa-calculator"></i> Instant Quote Calculator</h3>
+                    <div class="calculator-form">
+                        <div class="form-group">
+                            <label for="equipment-type">Equipment Type:</label>
+                            <select id="equipment-type">
+                                <option value="truck">6x4 Dump Truck</option>
+                                <!-- <option value="excavator">Excavator</option> -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="rental-days">Rental Duration (days):</label>
+                            <input type="number" id="rental-days" min="1" value="7">
+                        </div>
+                        <div class="form-group">
+                            <label for="project-size">Project Size:</label>
+                            <select id="project-size">
+                                <option value="small">Small (< 1,000 tons)</option>
+                                <option value="medium" selected>Medium (1,000-5,000 tons)</option>
+                                <option value="large">Large (> 5,000 tons)</option>
+                            </select>
+                        </div>
+                        <button id="calculate-quote">Calculate Quote</button>
+                        <div class="quote-result" id="quote-result"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -127,14 +189,26 @@
         <div class="container">
             <h2>Our Current Projects</h2>
             <p class="section-subtitle">Showcasing our growing portfolio in Lagos</p>
+
+            <!-- Project Filters -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+            </div>
             
             <div class="projects-grid">
                 
                 <div class="project-card">
-                    <img src="images/project2.jpg" alt="Victoria Island Project">
+                    <img src="images/loaded-truck-working.JPG" alt="Ikorodu Ibeshe Project">
                     <div class="project-info">
-                        <h3>Victoria Island Commercial Complex</h3>
-                        <p>Logistics support for high-rise development</p>
+                        <h3>Ibeshe hauling</h3>
+                        <p>Logistics support for  development</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar"></i> Ongoing</span>
+                            <span><i class="fas fa-truck"></i> 2 Trucks deployed</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -143,6 +217,10 @@
                     <div class="project-info">
                         <h3>Lagos Food Hub Epe Infrastructure Project</h3>
                         <p>Aggregate hauling and equipment support</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar"></i> Ongoing</span>
+                            <span><i class="fas fa-truck"></i> 11 Trucks deployed</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -190,20 +268,40 @@
                     <p>Monday - Friday: 8:30 AM - 5:00 PM</p>
                 </div>
                 
-                <form class="contact-form">
+                <form id="contact-form" class="contact-form">
                     <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" required>
+                        <span class="error-message" id="name-error"></span>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" required>
+                        <span class="error-message" id="email-error"></span>
                     </div>
                     <div class="form-group">
-                        <input type="tel" placeholder="Phone Number">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone">
+                        <span class="error-message" id="phone-error"></span>
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Tell us about your project needs" required></textarea>
+                        <label for="message">Project Details</label>
+                        <textarea id="message" required></textarea>
+                        <span class="error-message" id="message-error"></span>
                     </div>
-                    <button type="submit" class="btn">Send Inquiry</button>
+                    <div class="form-group">
+                        <label for="equipment-need">Equipment Needed</label>
+                        <select id="equipment-need" multiple>
+                            <option value="truck">6x4 Dump Truck</option>
+                            <!-- <option value="excavator">Excavator</option>
+                            <option value="loader">Front Loader</option> -->
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">
+                        <span class="submit-text">Send Inquiry</span>
+                        <span class="loading-icon"><i class="fas fa-spinner fa-spin"></i></span>
+                    </button>
+                    <div class="form-feedback" id="form-feedback"></div>
                 </form>
             </div>
         </div>
