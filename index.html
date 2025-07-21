@@ -6,13 +6,12 @@
     <title>Nexus Mega | Construction Logistics in Lagos</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
-</head>
+    </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
             <div class="logo">
+                <img src="images/nexus-logo-icon.png" alt="Nexus Mega Logo" class="header-logo">
                 <h1>Nexus <span>Mega</span></h1>
             </div>
             <nav>
@@ -30,10 +29,8 @@
         </div>
     </header>
 
-    <!-- Hero Slider -->
     <section id="home" class="hero">
         <div class="hero-slider">
-            <!-- Slide 1 -->
             <div class="slide active" style="background-image: url('images/hero-bg1.jpg');">
                 <div class="container">
                     <h2>Your Trusted Partner in <span>Construction Logistics in Lagos</span></h2>
@@ -44,7 +41,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Slide 2 -->
             <div class="slide" style="background-image: url('images/trucks-parked.JPG');">
                 <div class="container">
                     <h2>Premium <span>Heavy Equipment</span> Leasing</h2>
@@ -63,25 +59,23 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <h2>Who We Are</h2>
             <div class="about-grid">
                 <div class="about-content">
-                    <p>Nexus Mega Nigeria Ltd is a boutique construction logistics company in Lagos. With first class, highly reliable fleet of construction trucks and equipment, we offer a commitment to excellence. We ensure timely and efficient delivery for every project.</p>
+                    <p>Nexus Mega Nigeria Ltd is a construction logistics company in Lagos. With first class, highly reliable fleet of construction trucks and equipment, we offer a commitment to excellence. We ensure timely and efficient delivery for every project.</p>
                     
                     <div class="video-showcase">
                         <h3><i class="fas fa-video"></i> Our Fleet in Action</h3>
                         
-                        <!-- Video Grid -->
                         <div class="video-grid">
                             <div class="video-item">
-                                <video controls poster="images/truck-at-loading-site.JPG">
-                                    <source src="videos/truck at loading site.webm" type="video/webm">
+                                <video controls poster="images\white truck.jpg">
+                                    <source src="videos\Treuck Operating.webm" type="video/webm">
                                     Your browser doesn't support HTML5 video.
                                 </video>
-                                <p class="video-caption">Loading Operations at Ibeshe Site</p>
+                                <p class="video-caption">Site Operations</p>
                             </div>
                             
                             <div class="video-item">
@@ -114,7 +108,12 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <div id="video-lightbox" class="video-lightbox">
+        <div class="lightbox-content">
+            <span class="close-btn">&times;</span>
+            <video id="lightbox-video" controls autoplay playsinline></video>
+        </div>
+    </div>
     <section id="services" class="services">
         <div class="container">
             <h2>Construction Logistics Services</h2>
@@ -138,88 +137,45 @@
                     </div>
                     <h3>General Contracting & Supply</h3>
                     <ul>
-                        <li>Procurement of building materials</li>
+                        <li>Delivery of building materials</li>
                         <li>End-to-end project logistics support</li>
                     </ul>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Real Estate Development</h3>
-                    <ul>
-                        <li>Commercial and residential development</li>
-                    </ul>
-                </div>
-
-                <!-- Quote Calculator -->
-                <div class="quote-calculator">
-                    <h3><i class="fas fa-calculator"></i> Instant Quote Calculator</h3>
-                    <div class="calculator-form">
-                        <div class="form-group">
-                            <label for="equipment-type">Equipment Type:</label>
-                            <select id="equipment-type">
-                                <option value="truck">6x4 Dump Truck</option>
-                                <!-- <option value="excavator">Excavator</option> -->
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="rental-days">Rental Duration (days):</label>
-                            <input type="number" id="rental-days" min="1" value="7">
-                        </div>
-                        <div class="form-group">
-                            <label for="project-size">Project Size:</label>
-                            <select id="project-size">
-                                <option value="small">Small (< 1,000 tons)</option>
-                                <option value="medium" selected>Medium (1,000-5,000 tons)</option>
-                                <option value="large">Large (> 5,000 tons)</option>
-                            </select>
-                        </div>
-                        <button id="calculate-quote">Calculate Quote</button>
-                        <div class="quote-result" id="quote-result"></div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
             <h2>Our Current Projects</h2>
             <p class="section-subtitle">Showcasing our growing portfolio in Lagos</p>
 
-            <!-- Project Filters -->
             <div class="project-filters">
                 <button class="filter-btn active" data-filter="all">All Projects</button>
                 <button class="filter-btn" data-filter="commercial">Commercial</button>
-                <button class="filter-btn" data-filter="residential">Residential</button>
                 <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
-            </div>
+                 </div>
             
             <div class="projects-grid">
-                
-                <div class="project-card">
-                    <img src="images/loaded-truck-working.JPG" alt="Ikorodu Ibeshe Project">
+                <div class="project-card" data-category="infrastructure">
+                    <img src="images/loaded-truck-working.webp" alt="Ikorodu Ibeshe Project">
                     <div class="project-info">
-                        <h3>Ibeshe hauling</h3>
-                        <p>Logistics support for  development</p>
+                        <h3>Ibeshe Hauling</h3>
+                        <p>Logistics support for infrastructure development</p>
                         <div class="project-meta">
                             <span><i class="fas fa-calendar"></i> Ongoing</span>
-                            <span><i class="fas fa-truck"></i> 2 Trucks deployed</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="project-card">
-                    <img src="images/project1.jpg" alt="Epe Project">
+                <div class="project-card" data-category="infrastructure">
+                    <img src="images/project1.webp" alt="Epe Project">
                     <div class="project-info">
-                        <h3>Lagos Food Hub Epe Infrastructure Project</h3>
+                        <h3>Lagos Food Hub Ketu - Epe Infrastructure Project</h3>
                         <p>Aggregate hauling and equipment support</p>
                         <div class="project-meta">
                             <span><i class="fas fa-calendar"></i> Ongoing</span>
-                            <span><i class="fas fa-truck"></i> 11 Trucks deployed</span>
                         </div>
                     </div>
                 </div>
@@ -227,7 +183,6 @@
         </div>
     </section>
 
-    <!-- Why Us Section -->
     <section class="why-us">
         <div class="container">
             <h2>Why Choose Nexus Mega?</h2>
@@ -241,7 +196,7 @@
                 <div class="feature-card">
                     <i class="fas fa-thumbs-up"></i>
                     <h3>Client Satisfaction Guarantee</h3>
-                    <p>Family-owned business committed to your success</p>
+                    <p>Committed to your success</p>
                 </div>
                 
                 <div class="feature-card">
@@ -249,11 +204,37 @@
                     <h3>Timely Project Delivery</h3>
                     <p>Proven track record of meeting deadlines</p>
                 </div>
+        </div>
+    </section>
+
+    <section class="total-trips-section">
+        <div class="container trips-counter">
+            <h3>Over <span id="trip-count">0</span> Trips Completed Annually</h3>
+            <p>Our commitment to excellence ensures consistent, on-time project deliveries across Lagos.</p>
+        </div>
+    </section>
+
+    <section id="maintenance-gallery-section" class="maintenance-gallery-section">
+        <div class="container">
+            <h2>Maintenance Gallery</h2>
+            <p class="section-subtitle">A glimpse into our rigorous maintenance practices</p>
+            <div id="maintenance-gallery" class="maintenance-grid">
+                <a href="images\IMG_2160.webp" data-sub-html="<h4>Truck at Loading Site</h4><p>Rigorous maintenance ensures optimal performance.</p>">
+                    <img src="images\IMG_2160.webp" alt="Maintenance 1">
+                </a>
+                <a href="images/TRUCK W PARTNERS.webp" data-sub-html="<h4>Engine Bay Inspection</h4><p>Regular checks for peak efficiency.</p>">
+                    <img src="images/TRUCK W PARTNERS.webp" alt="Maintenance 2">
+                </a>
+                <a href="images\IMG_3728.webp" data-sub-html="<h4>Tire Change Operations</h4><p>Ensuring road-worthiness and safety.</p>">
+                    <img src="images\IMG_3728.webp" alt="Maintenance 3">
+                </a>
+                 <a href="images\truck bck.webp" data-sub-html="<h4>Fleet Servicing</h4><p>All vehicles undergo routine servicing.</p>">
+                    <img src="images\truck bck.webp" alt="Maintenance 4">
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2>Ready to Discuss Your Project?</h2>
@@ -261,7 +242,7 @@
                 <div class="contact-info">
                     <h3>Contact Details</h3>
                     <p><i class="fas fa-map-marker-alt"></i>Office Address:<br> 16 Oyetubo Street, <br> Off Awolowo Way, <br>Ikeja, Lagos</p>
-                    <p><i class="fas fa-phone"></i> +234 813 834 4808 | <br> +234 703 377 4905 | <br> +234 902 133 7813</p>
+                    <p><i class="fas fa-phone"></i> +234 808 384 3248 | <br> +234 703 377 4905 | <br> +234 902 133 7813</p>
                     <p><i class="fas fa-envelope"></i> contactus@nexusmega.ng</p>
                     
                     <h3>Business Hours</h3>
@@ -293,8 +274,6 @@
                         <label for="equipment-need">Equipment Needed</label>
                         <select id="equipment-need" multiple>
                             <option value="truck">6x4 Dump Truck</option>
-                            <!-- <option value="excavator">Excavator</option>
-                            <option value="loader">Front Loader</option> -->
                         </select>
                     </div>
                     <button type="submit" class="btn">
@@ -307,12 +286,11 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h3>Nexus Mega Ltd</h3>
+                    <h3>Nexus Mega Ltd.</h3>
                     <p>Your trusted construction logistics partner in Lagos</p>
                 </div>
                 <div class="footer-links">
@@ -332,7 +310,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Nexus Mega Ltd. All rights reserved.</p>
+                <p>&copy; 2025 Nexus Mega Ltd. All rights reserved.</p>
             </div>
         </div>
     </footer>
