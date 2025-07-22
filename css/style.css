@@ -11,6 +11,10 @@
     --success-color: #28a745;
     --error-color: #dc3545;
     --warning-color: #ffc107; /* New: For alerts or special callouts */
+
+    /* Add RGB values for transparent colors in LightGallery overrides */
+    --secondary-color-rgb: 52, 58, 64;
+    --primary-color-rgb: 5, 4, 170;
 }
 
 * {
@@ -19,16 +23,28 @@
     box-sizing: border-box;
 }
 
+/* IMPORTANT: HTML height must be 100% for body's min-height: 100vh to work correctly */
+html {
+    height: 100%; 
+}
+
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: var(--dark-color);
     overflow-x: hidden;
     background-color: #fff;
-    /* This will ensure the footer is always at the bottom, even with minimal content */
+    
+    /* These are correct for the Flexbox sticky footer */
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /* Ensures body is at least the full viewport height */
+
+    /* REMOVE these, they conflict with the flexbox sticky footer and were causing issues.
+       The padding-bottom was likely an attempt to clear the footer but the absolute positioning
+       of the footer combined with it was problematic. */
+    /* position: relative; */ 
+    /* padding-bottom: 120px; */ 
 }
 
 .container {
@@ -37,6 +53,18 @@ body {
     margin: 0 auto;
     padding: 0 15px;
 }
+
+/* You will need to wrap all your main content (everything between header and footer)
+   in a <main> tag for the sticky footer to work correctly with flexbox. */
+main {
+    flex: 1; /* This is the key. It makes the main content area grow and take up all available vertical space, pushing the footer down. */
+    /* Add padding-top to main to account for the fixed header height, 
+       if you haven't already done it on the hero section. 
+       If your hero section has margin-top for the header, then this isn't strictly necessary for `main` itself,
+       but it's good practice for general content. */
+    padding-top: 90px; /* Adjust based on your header's max height */
+}
+
 
 section {
     padding: 100px 0; /* Default padding for sections */
@@ -957,6 +985,10 @@ nav ul li a:hover::after {
 .contact {
     padding: 100px 0;
     background: var(--light-color); /* Light background for contact */
+    /* Add padding-bottom here to ensure space above the footer.
+       This is critical if your contact form is the last section before the footer.
+       Adjust the value as needed to provide sufficient clearance. */
+    padding-bottom: 120px; /* Example: Adjust this value as needed. It should be greater than or equal to your footer's height. */
 }
 
 .contact h2 {
@@ -1132,8 +1164,9 @@ footer {
     background: var(--secondary-color);
     color: #fff;
     padding: 60px 0 20px;
-    position: relative; /* Needed for the sticky effect */
-    margin-top: auto; /* Pushes footer to the bottom */
+    /* REMOVED: position: relative; - not needed for this sticky footer method */
+    /* REMOVED: margin-top: auto; - implicitly handled by flex: 1 on <main> */
+    /* Ensure it has enough height for its content, as `padding` defines it */
 }
 
 .footer-content {
@@ -1224,18 +1257,20 @@ footer {
     font-size: 0.95rem;
 }
 
-/* Footer Peel-Up Effect */
+/* Footer Peel-Up Effect - REMOVE THIS BLOCK entirely */
+/* This block directly conflicts with the flexbox sticky footer. */
+/*
 body {
     position: relative;
-    padding-bottom: 120px; /* Height of the footer + some margin */
+    padding-bottom: 120px; 
 }
 
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    /* No need for fixed positioning, margin-top: auto on body handles it */
 }
+*/
 
 
 /* ===== RESPONSIVE DESIGN ===== */
