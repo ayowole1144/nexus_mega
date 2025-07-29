@@ -9,25 +9,29 @@
     </head>
 <body>
     <header>
+    <div class="header-top">
         <div class="container">
             <div class="logo">
-                <img src="images/nexus-logo-icon.png" alt="Nexus Mega Logo" class="header-logo">
+                <img src="images/nexus-logo-icon.webp" alt="Nexus Mega Logo" class="header-logo">
                 <h1>Nexus <span>Mega</span></h1>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">Who We Are</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
-    </header>
+    </div>
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Who We Are</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
     <section id="home" class="hero">
         <div class="hero-slider">
@@ -67,38 +71,26 @@
                     <p>Nexus Mega Nigeria Ltd is a construction logistics company in Lagos. With first class, highly reliable fleet of construction trucks and equipment, we offer a commitment to excellence. We ensure timely and efficient delivery for every project.</p>
                     
                     <div class="video-showcase">
-                        <h3><i class="fas fa-video"></i> Our Fleet in Action</h3>
-                        
+                        <h3><i class="fas fa-camera"></i> Our Fleet in Action</h3>
+
                         <div class="video-grid">
                             <div class="video-item">
-                                <video controls poster="images\white truck.webp">
-                                    <source src="videos\Treuck Operating.webm" type="video/webm">
-                                    Your browser doesn't support HTML5 video.
-                                </video>
+                                <img src="images/white truck.webp" alt="Truck at Site Operations">
                                 <p class="video-caption">Site Operations</p>
                             </div>
-                            
+
                             <div class="video-item">
-                                <video controls poster="images/tire-maintenance.webp">
-                                    <source src="videos/tire_maintenance.webm" type="video/webm">
-                                    Your browser doesn't support HTML5 video.
-                                </video>
+                                <img src="images/tire-maintenance.webp" alt="Tire Maintenance Process">
                                 <p class="video-caption">Tire Maintenance Process</p>
                             </div>
-                            
+
                             <div class="video-item">
-                                <video controls poster="images/truck-engine-maintenance.webp">
-                                    <source src="videos/truck engine maintenance.webm" type="video/webm">
-                                    Your browser doesn't support HTML5 video.
-                                </video>
+                                <img src="images/truck-engine-maintenance.webp" alt="Engine Maintenance">
                                 <p class="video-caption">Engine Maintenance</p>
                             </div>
-                            
+
                             <div class="video-item">
-                                <video controls poster="images\truck at epe.webp">
-                                    <source src="videos/trucks parked.webm" type="video/webm">
-                                    Your browser doesn't support HTML5 video.
-                                </video>
+                                <img src="images/truck at epe.webp" alt="Our Fleet at Central Yard">
                                 <p class="video-caption">Our Fleet at Central Yard</p>
                             </div>
                         </div>
@@ -209,7 +201,7 @@
 
     <section class="total-trips-section">
         <div class="container trips-counter">
-            <h3>Over <span id="trip-count">0</span> Trips Completed Annually</h3>
+            <h3>Over <span id="trip-count">364</span> Trips Completed Annually</h3>
             <p>Our commitment to excellence ensures consistent, on-time project deliveries across Lagos.</p>
         </div>
     </section>
