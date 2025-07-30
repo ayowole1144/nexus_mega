@@ -1,8 +1,8 @@
 // Function to update CSS variables dynamically (for LightGallery RGBA)
 function updateCssRgbVariables() {
     const root = document.documentElement;
-    const primaryColor = getComputedStyle(root).getPropertyValue('--primary-color').trim();
-    const secondaryColor = getComputedStyle(root).getPropertyValue('--secondary-color').trim();
+    const primaryColorHex = getComputedStyle(root).getPropertyValue('--primary-color').trim();
+    const secondaryColorHex = getComputedStyle(root).getPropertyValue('--secondary-color').trim();
 
     // Convert hex to RGB and set CSS variables
     const hexToRgb = (hex) => {
@@ -12,11 +12,11 @@ function updateCssRgbVariables() {
         return result ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}` : null;
     };
 
-    if (hexToRgb(primaryColor)) {
-        root.style.setProperty('--primary-color-rgb', hexToRgb(primaryColor));
+    if (hexToRgb(primaryColorHex)) {
+        root.style.setProperty('--primary-color-rgb', hexToRgb(primaryColorHex));
     }
-    if (hexToRgb(secondaryColor)) {
-        root.style.setProperty('--secondary-color-rgb', hexToRgb(secondaryColor));
+    if (hexToRgb(secondaryColorHex)) {
+        root.style.setProperty('--secondary-color-rgb', hexToRgb(secondaryColorHex));
     }
 }
 
@@ -26,16 +26,19 @@ const body = document.body;
 const header = document.querySelector('header');
 const mobileMenuButton = document.querySelector('.mobile-menu');
 const mainNav = document.querySelector('nav ul'); // The desktop nav
-const mobileNavOverlay = document.createElement('div'); // Create overlay
+
+// Create mobile menu elements if they don't exist
+const mobileNavOverlay = document.createElement('div');
 mobileNavOverlay.classList.add('mobile-nav-overlay');
 body.appendChild(mobileNavOverlay);
 
-const mobileNav = document.createElement('nav'); // Create mobile nav container
+const mobileNav = document.createElement('nav');
 mobileNav.classList.add('mobile-nav');
 mobileNav.innerHTML = `
     <i class="fas fa-times close-btn"></i>
     <ul>
-        ${mainNav.innerHTML} </ul>
+        ${mainNav ? mainNav.innerHTML : ''} 
+    </ul>
 `;
 body.appendChild(mobileNav);
 
@@ -75,34 +78,30 @@ mobileNav.querySelectorAll('a').forEach(link => {
 
 
 // ===== STICKY HEADER & DYNAMIC LOGO =====
-const logoImgSrc = 'images/nexus-logo-icon.webp'; // Corrected path based on your HTML
-const initialLogoText = 'Nexus <span class="accent">Mega</span>'; // Changed class to accent based on your HTML
-const headerLogo = document.querySelector('.header-logo'); // Element for logo image
-const logoText = document.querySelector('.logo h1'); // Original h1 for text
+const headerLogo = document.querySelector('.header-logo'); // Element for logo image (the img tag)
+const logoText = document.querySelector('.logo h1'); // Original h1 for text (the 'Nexus Mega' text)
 
-// No need to create/prepend if it already exists in HTML as per your provided HTML
-// You should verify your HTML <div class="logo"> has the <img src="images/nexus-logo-icon.webp" alt="Nexus Mega Logo" class="header-logo">
-// If it does, remove the below block, as it's redundant.
-/*
-if (!headerLogo) {
-    const newLogoImg = document.createElement('img');
-    newLogoImg.src = logoImgSrc;
-    newLogoImg.alt = 'Nexus Mega Logo';
-    newLogoImg.classList.add('header-logo');
-    document.querySelector('.logo').prepend(newLogoImg);
+// Set initial display state on load: text visible, image hidden
+if (logoText) {
+    logoText.style.display = 'block';
 }
-*/
+if (headerLogo) {
+    headerLogo.style.display = 'none'; // Ensure image is hidden initially
+}
 
 function handleStickyHeader() {
-    if (window.scrollY > 50) {
+    // You can adjust this value (50) based on how far you want to scroll before the header changes
+    const scrollThreshold = 50; 
+
+    if (window.scrollY > scrollThreshold) {
         header.classList.add('sticky');
         // Hide text, show image
         if (logoText) {
             logoText.style.display = 'none';
         }
         if (headerLogo) {
-            headerLogo.style.display = 'block'; // Show the image
-            headerLogo.style.height = '35px'; // Adjust size for sticky
+            headerLogo.style.display = 'block'; 
+            // REMOVED: headerLogo.style.height = '35px'; // Let CSS control the height now
         }
     } else {
         header.classList.remove('sticky');
@@ -111,8 +110,8 @@ function handleStickyHeader() {
             logoText.style.display = 'block';
         }
         if (headerLogo) {
-            headerLogo.style.display = 'none'; // Hide the image
-            headerLogo.style.height = '40px'; // Reset size
+            headerLogo.style.display = 'none';
+            // REMOVED: headerLogo.style.height = '40px'; // Let CSS control the height now
         }
     }
 }
@@ -129,23 +128,37 @@ function toggleMobileMenu(show) {
         mobileNavOverlay.style.display = 'block';
         setTimeout(() => mobileNavOverlay.style.opacity = '1', 10);
         mobileNav.classList.add('active');
-        mobileMenuButton.querySelector('i').classList.remove('fa-bars');
-        mobileMenuButton.querySelector('i').classList.add('fa-times');
+        // Ensure mobile menu button icon changes if it's there
+        const menuIcon = mobileMenuButton ? mobileMenuButton.querySelector('i') : null;
+        if (menuIcon) {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times');
+        }
         body.style.overflowY = 'hidden'; // Prevent scrolling on body
     } else {
         body.classList.remove('mobile-menu-active');
         mobileNavOverlay.style.opacity = '0';
         setTimeout(() => mobileNavOverlay.style.display = 'none', 300);
         mobileNav.classList.remove('active');
-        mobileMenuButton.querySelector('i').classList.remove('fa-times');
-        mobileMenuButton.querySelector('i').classList.add('fa-bars');
+        // Ensure mobile menu button icon changes back
+        const menuIcon = mobileMenuButton ? mobileMenuButton.querySelector('i') : null;
+        if (menuIcon) {
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
         body.style.overflowY = 'auto'; // Re-enable scrolling
     }
 }
 
-mobileMenuButton.addEventListener('click', () => toggleMobileMenu());
-mobileNav.querySelector('.close-btn').addEventListener('click', () => toggleMobileMenu(false));
-mobileNavOverlay.addEventListener('click', () => toggleMobileMenu(false)); // Close on overlay click
+if (mobileMenuButton) {
+    mobileMenuButton.addEventListener('click', () => toggleMobileMenu());
+}
+if (mobileNav.querySelector('.close-btn')) {
+    mobileNav.querySelector('.close-btn').addEventListener('click', () => toggleMobileMenu(false));
+}
+if (mobileNavOverlay) {
+    mobileNavOverlay.addEventListener('click', () => toggleMobileMenu(false)); // Close on overlay click
+}
 
 
 // ===== HERO SLIDER =====
@@ -245,7 +258,6 @@ function initGallery() {
                 selector: 'a', // Select all anchor tags within the galleryElement
                 download: false,
                 speed: 500,
-                // Removed lgVideo plugin as videos are no longer in this gallery
                 plugins: [lgThumbnail, lgZoom], // Make sure these are loaded via CDN
                 animateThumb: true,
                 zoomFromOrigin: true,
@@ -411,8 +423,8 @@ function initContactForm() {
             // Show loading state
             submitBtn.disabled = true;
             submitBtn.classList.add('loading');
-            submitText.style.display = 'none';
-            loadingIcon.style.display = 'block';
+            if (submitText) submitText.style.display = 'none';
+            if (loadingIcon) loadingIcon.style.display = 'block';
 
             try {
                 // Simulate network request
@@ -446,8 +458,8 @@ function initContactForm() {
                 // Reset button state
                 submitBtn.disabled = false;
                 submitBtn.classList.remove('loading');
-                submitText.style.display = 'inline-block';
-                loadingIcon.style.display = 'none';
+                if (submitText) submitText.style.display = 'inline-block';
+                if (loadingIcon) loadingIcon.style.display = 'none';
             }
         } else {
             showFeedback('Please correct the errors in the form.', 'error-message-feedback');
@@ -475,18 +487,6 @@ function initContactForm() {
             });
         }
     });
-
-    // There's no 'service' select in the provided HTML, so this part is commented out/removed.
-    // const serviceSelect = document.getElementById('service');
-    // if (serviceSelect) {
-    //     serviceSelect.addEventListener('change', () => {
-    //         if (serviceSelect.value === '') {
-    //             document.getElementById('service-error').textContent = 'Please select a service.';
-    //         } else {
-    //             document.getElementById('service-error').textContent = '';
-    //         }
-    //     });
-    // }
 }
 
 
@@ -495,13 +495,12 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCssRgbVariables(); // Set RGB variables on load
 
     initSlider();
-    // Removed: initQuoteCalculator();
     initProjectFilters();
     initTotalTripsCounter();
     initContactForm();
-    // Removed: initVideoLightbox();
-    // Removed: initScrollVideoPlayback();
-    handleStickyHeader(); // Initial check for sticky header
+    
+    // Initial check for sticky header and logo display
+    handleStickyHeader(); 
 
     // Event listener for sticky header on scroll
     window.addEventListener('scroll', handleStickyHeader);
@@ -524,12 +523,6 @@ function loadLightGalleryAssets() {
         cssCore.href = 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css';
         document.head.appendChild(cssCore);
 
-        // Removed: LightGallery Video Plugin CSS
-        // const cssVideo = document.createElement('link');
-        // cssVideo.rel = 'stylesheet';
-        // cssVideo.href = 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lg-video.min.css';
-        // document.head.appendChild(cssVideo);
-
         // LightGallery Thumbnail Plugin CSS
         const cssThumb = document.createElement('link');
         cssThumb.rel = 'stylesheet';
@@ -549,12 +542,6 @@ function loadLightGalleryAssets() {
         scriptCore.defer = true;
         document.body.appendChild(scriptCore);
 
-        // Removed: LightGallery Video Plugin JS
-        // const scriptVideo = document.createElement('script');
-        // scriptVideo.src = 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/video/lg-video.min.js';
-        // scriptVideo.defer = true;
-        // document.body.appendChild(scriptVideo);
-
         // LightGallery Thumbnail Plugin JS
         const scriptThumb = document.createElement('script');
         scriptThumb.src = 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/thumbnail/lg-thumbnail.min.js';
@@ -571,7 +558,7 @@ function loadLightGalleryAssets() {
         scriptCore.onload = () => {
             // Check if all *remaining* plugins are also loaded before calling initGallery
             const checkPluginsLoaded = setInterval(() => {
-                if (typeof lgThumbnail === 'function' && typeof lgZoom === 'function') { // Removed lgVideo check
+                if (typeof lgThumbnail === 'function' && typeof lgZoom === 'function') {
                     clearInterval(checkPluginsLoaded);
                     initGallery();
                 }
