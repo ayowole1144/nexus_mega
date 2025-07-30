@@ -104,7 +104,7 @@ section {
     text-align: center;
     margin-bottom: 60px;
     color: #6c757d;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -477,7 +477,7 @@ header.sticky .header-logo {
 .about-content p {
     margin: 0 auto 40px;
     max-width: 800px;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     line-height: 1.8;
     text-align: center;
     color: var(--dark-grey-text);
@@ -627,6 +627,7 @@ header.sticky .header-logo {
     color: #495057;
     position: relative;
     padding-left: 25px; /* Space for custom bullet */
+    font-size: 1.1rem;
 }
 
 .service-card ul li::before {
@@ -749,6 +750,113 @@ header.sticky .header-logo {
 .project-meta i {
     margin-right: 8px;
     color: var(--secondary-color); /* Icon color */
+}
+
+/* ===== PROJECT CAROUSEL (New Styles) ===== */
+.project-carousel {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Match the height of your original project card image */
+    overflow: hidden;
+    border-radius: 8px 8px 0 0; /* Rounded top corners to match card */
+}
+
+.project-carousel-slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+}
+
+.project-carousel-slides img {
+    min-width: 100%; /* Each image takes full width of the carousel */
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Remove extra space below image */
+    transition: opacity 0.5s ease; /* For fade effect if preferred, but transform is for slide */
+}
+
+/* Hide non-active slides for a fade effect if transform isn't enough */
+.project-carousel-slides img:not(.active) {
+    opacity: 0;
+    position: absolute; /* Stack non-active slides */
+    top: 0;
+    left: 0;
+}
+
+.project-carousel-slides img.active {
+    opacity: 1;
+    position: relative; /* Bring active slide to front */
+}
+
+
+.project-carousel-prev,
+.project-carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 50%; /* Circular buttons */
+    z-index: 5; /* Above images but below info overlay */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.project-carousel-prev {
+    left: 10px;
+}
+
+.project-carousel-next {
+    right: 10px;
+}
+
+.project-carousel-prev:hover,
+.project-carousel-next:hover {
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--secondary-color); /* Bright Green on hover */
+}
+
+.project-carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 5;
+}
+
+.project-carousel-indicators span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project-carousel-indicators span.active {
+    background: var(--secondary-color); /* Bright Green for active indicator */
+    transform: scale(1.2);
+}
+
+/* Adjustments for project-card hover to ensure info overlay works with carousel */
+.project-card:hover .project-info {
+    transform: translateY(0); /* Ensure info slides up over carousel */
+    opacity: 1;
+}
+
+/* Ensure the image within the carousel is responsive */
+.project-carousel-slides img {
+    width: 100%; /* Ensure image fills its container */
+    height: 100%;
+    object-fit: cover;
 }
 
 

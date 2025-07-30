@@ -248,6 +248,118 @@ function initSlider() {
     }
 }
 
+// ===== PROJECT CARD CAROUSEL (New Functionality) =====
+function initProjectCardCarousel(projectCardElement) {
+    const slidesContainer = projectCardElement.querySelector('.project-carousel-slides');
+    const slides = slidesContainer ? slidesContainer.querySelectorAll('img') : [];
+    const prevBtn = projectCardElement.querySelector('.project-carousel-prev');
+    const nextBtn = projectCardElement.querySelector('.project-carousel-next');
+    const indicatorsContainer = projectCardElement.querySelector('.project-carousel-indicators');
+
+    if (slides.length <= 1) { // No carousel needed if 0 or 1 slide
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        if (indicatorsContainer) indicatorsContainer.style.display = 'none';
+        return;
+    }
+
+    let currentSlideIndex = 0;
+    let autoSlideInterval;
+
+    function updateProjectCarousel() {
+        // Reset all slides and then activate the current one
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            // For a "slide" effect, we'd use transform: translateX.
+            // For a "fade" effect, we use opacity and position: absolute.
+            // Let's stick to opacity/absolute for simplicity and better control over stacking.
+            if (index === currentSlideIndex) {
+                slide.classList.add('active');
+            }
+        });
+
+        // Update indicators
+        if (indicatorsContainer) {
+            const dots = indicatorsContainer.querySelectorAll('span');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlideIndex);
+            });
+        }
+    }
+
+    function showNextSlide() {
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        updateProjectCarousel();
+    }
+
+    function showPrevSlide() {
+        currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+        updateProjectCarousel();
+    }
+
+    function startAutoSlide() {
+        clearInterval(autoSlideInterval); // Clear any existing interval
+        autoSlideInterval = setInterval(showNextSlide, 4000); // Auto-advance every 4 seconds
+    }
+
+    function pauseAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Create indicators dynamically
+    if (indicatorsContainer) {
+        indicatorsContainer.innerHTML = ''; // Clear existing
+        slides.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.setAttribute('aria-label', `Go to image ${index + 1}`);
+            dot.setAttribute('role', 'button');
+            dot.addEventListener('click', () => {
+                currentSlideIndex = index;
+                updateProjectCarousel();
+                pauseAutoSlide();
+                startAutoSlide(); // Restart timer on manual interaction
+            });
+            indicatorsContainer.appendChild(dot);
+        });
+    }
+
+    // Attach event listeners to buttons
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            showPrevSlide();
+            pauseAutoSlide();
+            startAutoSlide();
+        });
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            showNextSlide();
+            pauseAutoSlide();
+            startAutoSlide();
+        });
+    }
+
+    // Pause/Resume on hover
+    if (slidesContainer) {
+        slidesContainer.addEventListener('mouseenter', pauseAutoSlide);
+        slidesContainer.addEventListener('mouseleave', startAutoSlide);
+    }
+
+    // Initial update and start auto-slide
+    updateProjectCarousel();
+    startAutoSlide();
+}
+
+// Initialize all project carousels when the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // ... (your existing DOMContentLoaded code) ...
+
+    // NEW: Initialize project carousels
+    document.querySelectorAll('.project-card').forEach(card => {
+        initProjectCardCarousel(card);
+    });
+});
+
 // ===== MAINTENANCE GALLERY =====
 function initGallery() {
     const galleryElement = document.getElementById('maintenance-gallery');
