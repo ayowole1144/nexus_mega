@@ -3,35 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Mega | Construction Logistics in Lagos</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    </head>
+    <title>Nexus Mega - Construction Logistics and Equipment Leasing</title>
+    <!-- SEO and Accessibility Improvement: Meta Description -->
+    <meta name="description" content="Nexus Mega is a leading provider of construction logistics, truck leasing, and heavy equipment for projects across Lagos, Nigeria.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="images/nexus-logo-icon.webp">
+    <!-- Apple Touch Icon for iOS devices -->
+    <link rel="apple-touch-icon" href="images/nexus-logo-icon.webp">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
+
     <header>
-    <div class="header-top">
-        <div class="container">
-            <div class="logo">
-                <img src="images/nexus-logo-icon.webp" alt="Nexus Mega Logo" class="header-logo">
+        <div class="header-container container">
+            <a href="#home" class="logo">
+                <!-- Original Logo (for transparent header) -->
+                <img src="images/nexus-logo-icon.webp" alt="Nexus Mega Logistics white logo" class="header-logo logo-dark">
+                <!-- New Logo (for scrolled header) -->
+                <img src="images/nexus-logo-icon-dark.webp" alt="Nexus Mega Logistics dark logo" class="header-logo logo-light">
                 <h1 class="logo-text">Nexus Mega</h1>
-            </div>
-            <div class="mobile-menu">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Who We Are</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#why-us">Why Choose Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            <!-- Accessibility Improvement: Added aria-label for screen readers -->
+            <div class="mobile-menu-icon" role="button" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
-    </div>
-    <nav class="main-nav">
-        <div class="container">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Who We Are</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
+    </header>
 
     <section id="home" class="hero">
         <div class="hero-slider">
@@ -55,61 +65,59 @@
                     </div>
                 </div>
             </div>
+            <div class="slide" style="background-image: url('images/hero-bg2.webp');">
+            <div class="container">
+                <h2>Reliable Hauling Services for All Construction Materials</h2>
+                <p>Our dedicated fleet of 6x4 dump trucks ensures efficient and timely transport.</p>
+                <div class="hero-cta">
+                    <p>We provide full-service logistics for your project, from start to finish.</p>
+                    <a href="#contact" class="btn">Enquire Now</a>
+                </div>
+            </div>
         </div>
-        <div class="slider-controls">
-            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
-            <div class="slide-indicators"></div>
-            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2>Who We Are</h2>
-            <div class="about-grid">
-                <div class="about-content">
-                    <p>Nexus Mega Nigeria Ltd is a construction logistics company in Lagos. With first class, highly reliable fleet of construction trucks and equipment, we offer a commitment to excellence. 
-                        We ensure timely and efficient delivery for every project.</p>
-                    
-                    <div class="video-showcase">
-                        <h3><i class="fas fa-camera"></i> Our Fleet in Action</h3>
-
-                        <div class="video-grid">
-                            <div class="video-item">
-                                <img src="images/white truck.webp" alt="Truck at Site Operations">
-                                <p class="video-caption">Site Operations</p>
-                            </div>
-
-                            <div class="video-item">
-                                <img src="images/tire-maintenance.webp" alt="Tire Maintenance Process">
-                                <p class="video-caption">Tire Maintenance Process</p>
-                            </div>
-
-                            <div class="video-item">
-                                <img src="images/truck-engine-maintenance.webp" alt="Engine Maintenance">
-                                <p class="video-caption">Engine Maintenance</p>
-                            </div>
-
-                            <div class="video-item">
-                                <img src="images/truck at epe.webp" alt="Our Fleet at Central Yard">
-                                <p class="video-caption">Our Fleet at Central Yard</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Counter Section -->
+    <section class="counter-section">
+        <div class="container counter-wrapper">
+            <div class="counter-item">
+                <p>Over</p>
+                <h3 class="counter" data-target="450">0<span class="plus">+</span></h3>
+                <p>Trips Completed</p>
+            </div>
+            <div class="counter-item">
+                <h3 class="counter" data-target="15">0<span class="plus">+</span></h3>
+                <p>Months in Business</p>
             </div>
         </div>
     </section>
 
-    <section id="services" class="services">
+    <!-- Updated "Who We Are" Section with image grid -->
+    <section id="about" class="who-we-are-section">
+        <div class="container text-content">
+            <h2>Who We Are</h2>
+            <p>Nexus Mega Logistics is a leading provider of construction equipment leasing services, specializing in the provision of dump trucks and other heavy machinery for a wide range of projects across Lagos, Nigeria.</p>
+            <p>Founded in 2024, our mission is to support the rapid development of infrastructure in our city by offering reliable, efficient, and cost-effective logistics solutions to our clients. We pride ourselves on our commitment to safety, timeliness, and customer satisfaction.</p>
+            <h2><i class="fas fa-truck-moving" style="color: #0A192F;"></i> Our Fleet in Action</h2>
+        </div>
+        <div class="container image-grid">
+            <!-- SEO and Accessibility Improvement: More descriptive alt text -->
+            <img src="images/ibeshe-trk1.webp" alt="Nexus Mega dump truck on Ikorodu Ibeshe project site">
+            <img src="images/loaded-truck-working.webp" alt="Heavy equipment working at the Lagos Food Hub project">
+            <img src="images/truck_at_epe.webp" alt="Fleet of trucks ready to work on Ikorodu Ibeshe project">
+            <img src="images/Ibsh-truck-sand-bckgrd.webp" alt="Close-up of heavy machinery at a construction site">
+        </div>
+    </section>
+
+    <!-- New "Services" Section -->
+    <section id="services" class="services-section">
         <div class="container">
             <h2>Construction Logistics Services</h2>
-            <p class="section-subtitle">We specialise in leasing trucks and heavy equipment for major construction projects</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-truck-moving"></i>
-                    </div>
+            <p class="subtitle">We specialize in leasing trucks and heavy equipment for major construction projects</p>
+            <div class="card-container">
+                <div class="card">
+                    <i class="fas fa-truck icon"></i>
                     <h3>Construction Logistics & Truck Leasing</h3>
                     <ul>
                         <li>Fleet of 6x4 dump (tipper) trucks</li>
@@ -117,46 +125,39 @@
                         <li>Reliable heavy-duty equipment leasing</li>
                     </ul>
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-boxes"></i>
-                    </div>
+                <div class="card">
+                    <i class="fas fa-hard-hat icon"></i>
                     <h3>General Contracting & Supply</h3>
                     <ul>
                         <li>Delivery of building materials</li>
                         <li>End-to-end project logistics support</li>
+                        <li>Ensuring constant material availability</li>
                     </ul>
                 </div>
-                
             </div>
         </div>
     </section>
-
+    
+    <!-- New "Projects" Section -->
     <section id="projects" class="projects">
         <div class="container">
             <h2>Our Current Projects</h2>
             <p class="section-subtitle">Showcasing our growing portfolio in Lagos</p>
-
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="commercial">Commercial</button>
-                <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
-                 </div>
             
-            <div class="projects-grid">
+            <div class="project-grid">
                 <div class="project-card" data-category="infrastructure">
                     
                     <div class="project-carousel">
-                         <div class="project-carousel-slides">
-                            <img src="images/loaded-truck-working.webp" alt="Ikorodu Ibeshe Project 1" class="active">
-                            <img src="https://placehold.co/600x400/0E4762/FFFFFF?text=Project+1+Image+2" alt="Ikorodu Ibeshe Project 2">
-                            <img src="https://placehold.co/600x400/00BF63/FFFFFF?text=Project+1+Image+3" alt="Ikorodu Ibeshe Project 3">
+                        <div class="project-carousel-slides">
+                             <!-- SEO and Accessibility Improvement: More descriptive alt text -->
+                             <img src="images/ibeshe-trk1.webp" alt="Dump truck hauling material on the Ibeshe project site" class="active">
+                             <img src="images/Ibsh-truck-sand-bckgrd.webp" alt="Ibeshe infrastructure development project site" class="active">
+                             <img src="images/ibsh-op.webp" alt="Nexus Mega trucks at the Ibeshe project site">
                         </div>
                         <button class="project-carousel-prev"><i class="fas fa-chevron-left"></i></button>
                         <button class="project-carousel-next"><i class="fas fa-chevron-right"></i></button>
                         <div class="project-carousel-indicators">
-                     <!-- Indicators will be generated by JavaScript -->
+                           <!-- Indicators will be generated by JavaScript -->
                         </div>
                     </div>
                     <div class="project-info">
@@ -171,9 +172,10 @@
                 <div class="project-card" data-category="infrastructure">
                     <div class="project-carousel">
                         <div class="project-carousel-slides">
-                            <img src="images/project1.webp" alt="Lagos Food Hub Project 1" class="active">
-                            <img src="images\epe begining.webp" alt="Lagos Food Hub Project 2">
-                             <img src="images\epe start (1).webp" alt="Lagos Food Hub Project 2">
+                            <!-- SEO and Accessibility Improvement: More descriptive alt text -->
+                            <img src="images/epe_begining.webp" alt="Nexus Mega trucks at the Lagos Food Hub Ketu-Epe site" class="active">
+                            <img src="images/truck_at_epe.webp" alt="Aerial view of the Lagos Food Hub infrastructure project">
+                            <img src="images/IMG_2141.webp" alt="Excavator working at the Lagos Food Hub site">
                         </div>
                         <button class="project-carousel-prev"><i class="fas fa-chevron-left"></i></button>
                         <button class="project-carousel-next"><i class="fas fa-chevron-right"></i></button>
@@ -193,138 +195,100 @@
         </div>
     </section>
 
-    <section class="why-us">
+    <!-- "Why Choose Us" Section -->
+    <section id="why-us" class="why-us">
         <div class="container">
             <h2>Why Choose Nexus Mega?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-cogs"></i>
+            <div class="why-us-grid">
+                <div class="why-us-card">
+                    <i class="fas fa-cogs icon"></i>
                     <h3>Top Notch Equipment & Personnel</h3>
                     <p>Modern fleet maintained to highest standards</p>
                 </div>
-                
-                <div class="feature-card">
-                    <i class="fas fa-thumbs-up"></i>
+                <div class="why-us-card">
+                    <i class="fas fa-thumbs-up icon"></i>
                     <h3>Client Satisfaction Guarantee</h3>
                     <p>Committed to your success</p>
                 </div>
-                
-                <div class="feature-card">
-                    <i class="fas fa-clock"></i>
+                <div class="why-us-card">
+                    <i class="fas fa-clock icon"></i>
                     <h3>Timely Project Delivery</h3>
                     <p>Proven track record of meeting deadlines</p>
                 </div>
-        </div>
-    </section>
-
-    <section class="total-trips-section">
-        <div class="container trips-counter">
-            <h3>Over <span id="trip-count">364</span> Trips Completed Annually</h3>
-            <p>Our commitment to excellence ensures consistent, on-time project deliveries across Lagos.</p>
-        </div>
-    </section>
-
-    <section id="maintenance-gallery-section" class="maintenance-gallery-section">
-        <div class="container">
-            <h2>Maintenance Gallery</h2>
-            <p class="section-subtitle">A glimpse into our rigorous maintenance practices</p>
-            <div id="maintenance-gallery" class="maintenance-grid">
-                <a href="images\IMG_2160.webp" data-sub-html="<h4>Truck at Loading Site</h4><p>Rigorous maintenance ensures optimal performance.</p>">
-                    <img src="images\IMG_2160.webp" alt="Maintenance 1">
-                </a>
-                <a href="images/TRUCK W PARTNERS.webp" data-sub-html="<h4>Engine Bay Inspection</h4><p>Regular checks for peak efficiency.</p>">
-                    <img src="images/TRUCK W PARTNERS.webp" alt="Maintenance 2">
-                </a>
-                <a href="images\IMG_3728.webp" data-sub-html="<h4>Tire Change Operations</h4><p>Ensuring road-worthiness and safety.</p>">
-                    <img src="images\IMG_3728.webp" alt="Maintenance 3">
-                </a>
-                 <a href="images\truck bck.webp" data-sub-html="<h4>Fleet Servicing</h4><p>All vehicles undergo routine servicing.</p>">
-                    <img src="images\truck bck.webp" alt="Maintenance 4">
-                </a>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <!-- New "Contact Us" Section -->
+    <section id="contact" class="contact-section">
         <div class="container">
-            <h2>Ready to Discuss Your Project?</h2>
-            <div class="contact-grid">
+            <h2>Get In Touch</h2>
+            <div class="contact-wrapper">
                 <div class="contact-info">
                     <h3>Contact Details</h3>
                     <p><i class="fas fa-map-marker-alt"></i>Office Address:<br> 16 Oyetubo Street, <br> Off Awolowo Way, <br>Ikeja, Lagos</p>
-                    <p><i class="fas fa-phone"></i> +234 808 384 3248 | <br> +234 703 377 4905 | <br> +234 902 133 7813</p>
+                    <p><i class="fas fa-phone"></i> +234 907 731 5883 | <br> +234 703 377 4905 | <br> +234 902 133 7813</p>
                     <p><i class="fas fa-envelope"></i> contactus@nexusmega.ng</p>
                     
                     <h3>Business Hours</h3>
                     <p>Monday - Friday: 8:30 AM - 5:00 PM</p>
                 </div>
-                
-                <form id="contact-form" class="contact-form">
+                <!-- Security Update: Added novalidate and will handle form submission via JavaScript -->
+                <form class="contact-form" id="contactForm" novalidate>
+                    <h3>Send a Message</h3>
                     <div class="form-group">
                         <label for="name">Your Name</label>
-                        <input type="text" id="name" required>
-                        <span class="error-message" id="name-error"></span>
+                        <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Your Email</label>
-                        <input type="email" id="email" required>
-                        <span class="error-message" id="email-error"></span>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone">
-                        <span class="error-message" id="phone-error"></span>
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Project Details</label>
-                        <textarea id="message" required></textarea>
-                        <span class="error-message" id="message-error"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="equipment-need">Equipment Needed</label>
-                        <select id="equipment-need" multiple>
-                            <option value="truck">6x4 Dump Truck</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn">
-                        <span class="submit-text">Send Inquiry</span>
-                        <span class="loading-icon"><i class="fas fa-spinner fa-spin"></i></span>
-                    </button>
-                    <div class="form-feedback" id="form-feedback"></div>
+                    <button type="submit" class="btn">Send Message</button>
+                    <!-- Message box for success/error messages -->
+                    <div id="form-message" style="margin-top: 15px; text-align: center; font-weight: bold;"></div>
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- New Footer Section -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>Nexus Mega Ltd.</h3>
-                    <p>Your trusted construction logistics partner in Lagos</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h4>Follow Us</h4>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+        <div class="container footer-content">
+            <div class="footer-section footer-about">
+                <a href="#home" class="logo">
+                    <img src="images/nexus-logo-icon.webp" alt="Nexus Mega white logo" class="footer-logo">
+                    <h1 class="logo-text">Nexus Mega</h1>
+                </a>
+                <p>Your trusted partner in construction logistics and heavy equipment leasing.</p>
+            </div>
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/nexusmega.ng/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61578921326712" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Nexus Mega Ltd. All rights reserved.</p>
-            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Nexus Mega. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- New script.js file to handle form submission -->
+    <script src="script.js"></script>
 </body>
 </html>
