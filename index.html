@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="slide" style="background-image: url('images/hero-bg2.webp');">
+            <div class="slide" style="background-image: url('images/sand-dread-ops.webp');">
             <div class="container">
                 <h2>Reliable Hauling Services for All Construction Materials</h2>
                 <p>Our dedicated fleet of 6x4 dump trucks ensures efficient and timely transport.</p>
@@ -103,10 +103,14 @@
         </div>
         <div class="container image-grid">
             <!-- SEO and Accessibility Improvement: More descriptive alt text -->
-            <img src="images/ibeshe-trk1.webp" alt="Nexus Mega dump truck on Ikorodu Ibeshe project site">
+            <video src="videos/Truck-Moving-Out.webm" class="hero-video" loop autoplay muted playsinline></video>
             <img src="images/loaded-truck-working.webp" alt="Heavy equipment working at the Lagos Food Hub project">
-            <img src="images/truck_at_epe.webp" alt="Fleet of trucks ready to work on Ikorodu Ibeshe project">
-            <img src="images/Ibsh-truck-sand-bckgrd.webp" alt="Close-up of heavy machinery at a construction site">
+            <video src="videos/cleaned-truck.webm" class="hero-video" loop autoplay muted playsinline></video>
+            <img src="images/Ibsh-truck-sand-bckgrd.webp" alt="Close-up of sand hauling operation">
+            <video src="videos/white-truck-clean.webm" class="hero-video" loop autoplay muted playsinline></video>
+            <img src="images/ibeshe-trk1.webp" alt="Nexus Mega dump truck on Ikorodu Ibeshe project site">
+            <video src="videos/Trucks-Parked.webm" class="hero-video" loop autoplay muted playsinline></video>
+            <img src="images/truck_at_epe.webp" alt="Fleet of trucks ready to work on Ketu Epe project">
         </div>
     </section>
 
@@ -234,7 +238,7 @@
                     <p>Monday - Friday: 8:30 AM - 5:00 PM</p>
                 </div>
                 <!-- Security Update: Added novalidate and will handle form submission via JavaScript -->
-                <form class="contact-form" id="contactForm" novalidate>
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xvgqwrka" method="post" novalidate>
                     <h3>Send a Message</h3>
                     <div class="form-group">
                         <label for="name">Your Name</label>
@@ -280,6 +284,7 @@
                 <div class="social-links">
                     <a href="https://www.instagram.com/nexusmega.ng/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.facebook.com/profile.php?id=61578921326712" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/2349077315883" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -290,5 +295,41 @@
 
     <!-- New script.js file to handle form submission -->
     <script src="script.js"></script>
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('form-message');
+
+    contactForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(contactForm);
+
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          formMessage.innerText = 'Thank you! Your message has been sent.';
+          formMessage.style.color = '#00bf63';
+          contactForm.reset();
+        } else {
+          return response.json().then(data => {
+            throw new Error(data.error || 'Something went wrong.');
+          });
+        }
+      })
+      .catch(error => {
+        formMessage.innerText = error.message;
+        formMessage.style.color = '#ff4d4d';
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
